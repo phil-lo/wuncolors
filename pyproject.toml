@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "wuncolors"
 version = "0.1.0"
-description = "Manage color palettes and utilities for working with colors"
+description = "Color Palettes"
 authors = ["Philippe Lacroix-Ouellette <philippe.lacroix-ouellette@hec.ca>"]
 license = "LICENSE.txt"
 readme = "README.md"
