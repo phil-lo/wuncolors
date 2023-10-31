@@ -1,0 +1,10 @@
+[primary]
+blue = [0, 0, 255]
+red = [255, 0, 0]
+
+[secondary]
+random = [100, 56, 1]
+Random2 = [222, 222, 7]
+
+[others]
+white = [255, 255, 255]
