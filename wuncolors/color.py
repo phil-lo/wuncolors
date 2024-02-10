@@ -117,7 +117,7 @@ class ColorPalette:
 
         return pal
 
-    def get_primary(self, name: str | None = None) -> Color | list[Color]:
+    def get_primary(self, name: str | None = None) -> list[Color]:
         """
         Return the colors from its name, in the primary section of the palette. If name is None it returns all primary colors
         :param name:
@@ -125,7 +125,7 @@ class ColorPalette:
         """
         return self._find_in(name, options=self.primary)
 
-    def get_secondary(self, name: str | None = None) -> Color | list[Color]:
+    def get_secondary(self, name: str | None = None) -> list[Color]:
         """
         Return the colors from its name, in the secondary section of the palette. If name is None it returns all secondary colors
         :param name:
@@ -133,7 +133,7 @@ class ColorPalette:
         """
         return self._find_in(name, options=self.secondary)
 
-    def get_others(self, name: str | None = None) -> Color | list[Color]:
+    def get_others(self, name: str | None = None) -> list[Color]:
         """
         Return the colors from its name, in the others section of the palette. If name is None it returns all other colors
         :param name:
@@ -141,7 +141,7 @@ class ColorPalette:
         """
         return self._find_in(name, options=self.others)
 
-    def all_colors(self, name: str | None = None) -> Color | list[Color]:
+    def all_colors(self, name: str | None = None) -> list[Color]:
         """
         Return the colors from its name, from all sections of the palette. If name is None it returns all colors
         :param name:
@@ -153,13 +153,11 @@ class ColorPalette:
         return self._find_in(name, options=all_options)
 
     @classmethod
-    def _find_in(cls, name: str | None, options: set[Color]) -> Color | list[Color]:
+    def _find_in(cls, name: str | None, options: set[Color]) -> list[Color]:
         if name is None:
             return [*options]
 
         result = [c for c in options if name == c.name]
         if not result:
             raise ColorNotFoundError(name, options=[o.name for o in options])
-        if len(result) == 1:
-            return result[0]
         return result
